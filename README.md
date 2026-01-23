@@ -2,6 +2,23 @@
 
 Configuración clara y consistente para OpenCode. Pensada para mantener disciplina en el flujo de trabajo sin sobre‑ingeniería.
 
+## Índice
+- [Inicio rápido](#inicio-rápido)
+- [Docs oficiales (OpenCode)](#docs-oficiales-opencode)
+- [Enlaces directos de OpenCode](#enlaces-directos-de-opencode)
+- [Qué incluye](#qué-incluye)
+- [Agentes](#agentes)
+- [Comandos](#comandos)
+- [Skills](#skills)
+- [Rules](#rules)
+- [Workflow recomendado (Baymax)](#workflow-recomendado-baymax)
+- [Memory (soft)](#memory-soft)
+- [MCPs (configurados en opencode.json)](#mcps-configurados-en-opencodejson)
+- [MCPs que requieren keys o autenticación](#mcps-que-requieren-keys-o-autenticación)
+- [MCPs sin keys (habilitados)](#mcps-sin-keys-habilitados)
+- [Hooks (compatibilidad)](#hooks-compatibilidad)
+- [Notion](#notion)
+
 ## Inicio rápido
 
 ```bash
@@ -25,6 +42,16 @@ ln -sfn "$(pwd)" ~/.config/opencode
 ## Docs oficiales (OpenCode)
 - https://opencode.ai/docs
 - https://github.com/opencode-ai/opencode
+
+## Enlaces directos de OpenCode
+- Instalación: https://opencode.ai/docs/#install
+- Configuración: https://opencode.ai/docs/config/
+- Agentes: https://opencode.ai/docs/agents/
+- Tools: https://opencode.ai/docs/tools/
+- Skills: https://opencode.ai/docs/skills/
+- Commands: https://opencode.ai/docs/commands/
+- Rules: https://opencode.ai/docs/rules/
+- MCP Servers: https://opencode.ai/docs/mcp-servers/
 
 ## Qué incluye
 - Agentes especializados
