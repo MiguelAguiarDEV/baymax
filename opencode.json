@@ -1,0 +1,288 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-google-antigravity-auth"],
+  "provider": {
+    "google": {
+      "npm": "@ai-sdk/google",
+      "models": {
+        "gemini-3-pro-preview": {
+          "id": "gemini-3-pro-preview",
+          "name": "Gemini 3 Pro",
+          "release_date": "2025-11-18",
+          "reasoning": true,
+          "limit": { "context": 1000000, "output": 64000 },
+          "cost": { "input": 2, "output": 12, "cache_read": 0.2 },
+          "modalities": {
+            "input": ["text", "image", "video", "audio", "pdf"],
+            "output": ["text"]
+          },
+          "variants": {
+            "low": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "low",
+                  "includeThoughts": true
+                }
+              }
+            },
+            "medium": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "medium",
+                  "includeThoughts": true
+                }
+              }
+            },
+            "high": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "high",
+                  "includeThoughts": true
+                }
+              }
+            }
+          }
+        },
+        "gemini-3-flash": {
+          "id": "gemini-3-flash",
+          "name": "Gemini 3 Flash",
+          "release_date": "2025-12-17",
+          "reasoning": true,
+          "limit": { "context": 1048576, "output": 65536 },
+          "cost": { "input": 0.5, "output": 3, "cache_read": 0.05 },
+          "modalities": {
+            "input": ["text", "image", "video", "audio", "pdf"],
+            "output": ["text"]
+          },
+          "variants": {
+            "minimal": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "minimal",
+                  "includeThoughts": true
+                }
+              }
+            },
+            "low": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "low",
+                  "includeThoughts": true
+                }
+              }
+            },
+            "medium": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "medium",
+                  "includeThoughts": true
+                }
+              }
+            },
+            "high": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingLevel": "high",
+                  "includeThoughts": true
+                }
+              }
+            }
+          }
+        },
+        "gemini-2.5-flash-lite": {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash Lite",
+          "reasoning": false
+        },
+        "gemini-claude-sonnet-4-5-thinking": {
+          "id": "gemini-claude-sonnet-4-5-thinking",
+          "name": "Claude Sonnet 4.5",
+          "reasoning": true,
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "variants": {
+            "none": {
+              "reasoning": false,
+              "options": { "thinkingConfig": { "includeThoughts": false } }
+            },
+            "low": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 4000,
+                  "includeThoughts": true
+                }
+              }
+            },
+            "medium": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 16000,
+                  "includeThoughts": true
+                }
+              }
+            },
+            "high": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 32000,
+                  "includeThoughts": true
+                }
+              }
+            }
+          }
+        },
+        "gemini-claude-opus-4-5-thinking": {
+          "id": "gemini-claude-opus-4-5-thinking",
+          "name": "Claude Opus 4.5",
+          "release_date": "2025-11-24",
+          "reasoning": true,
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "variants": {
+            "low": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 4000,
+                  "includeThoughts": true
+                }
+              }
+            },
+            "medium": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 16000,
+                  "includeThoughts": true
+                }
+              }
+            },
+            "high": {
+              "options": {
+                "thinkingConfig": {
+                  "thinkingBudget": 32000,
+                  "includeThoughts": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "keybinds": {
+    "input_newline": "shift+return,ctrl+return,alt+return,ctrl+j"
+  },
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest",
+        "--api-key",
+        "${CONTEXT7_API_KEY}"
+      ],
+      "enabled": false
+    },
+    "filesystem": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${HOME}",
+        "${HOME}/Work",
+        "${HOME}/Repos/wsl2-bootstrap"
+      ],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": false,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "firecrawl": {
+      "type": "local",
+      "command": ["npx", "-y", "firecrawl-mcp"],
+      "enabled": false,
+      "environment": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    },
+    "memory": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "enabled": true
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "enabled": true
+    },
+    "vercel": {
+      "type": "remote",
+      "url": "https://mcp.vercel.com",
+      "enabled": false
+    },
+    "cloudflare-docs": {
+      "type": "remote",
+      "url": "https://docs.mcp.cloudflare.com/mcp",
+      "enabled": false
+    },
+    "cloudflare-workers-builds": {
+      "type": "remote",
+      "url": "https://builds.mcp.cloudflare.com/mcp",
+      "enabled": false
+    },
+    "cloudflare-workers-bindings": {
+      "type": "remote",
+      "url": "https://bindings.mcp.cloudflare.com/mcp",
+      "enabled": false
+    },
+    "cloudflare-observability": {
+      "type": "remote",
+      "url": "https://observability.mcp.cloudflare.com/mcp",
+      "enabled": false
+    },
+    "magic": {
+      "type": "local",
+      "command": ["npx", "-y", "@magicuidesign/mcp@latest"],
+      "enabled": true
+    }
+  },
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "description": "Primary development agent with Astro orchestration rules.",
+      "prompt": "You are ASTRO in build mode. Follow rules/agents.md and AGENTS.md strictly. Automatically invoke subagents when required: use @planner for complex planning or architectural changes; use @tdd-guide for new features and bug fixes (tests first); use @code-reviewer immediately after code changes; use @security-reviewer for user input, auth, API endpoints, or sensitive data; use @e2e-runner for critical user flows. Use memory_* only for important decisions, new conventions, or recurring fixes. Ask before installing missing tools unless the user requested installation."
+    },
+    "plan": {
+      "mode": "primary",
+      "description": "Planning-only agent following Astro rules.",
+      "prompt": "You are ASTRO in plan mode. Do not edit files or run commands unless explicitly allowed. Use @planner to produce structured plans and wait for confirmation before implementation.",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
+  },
+  "instructions": ["rules/*.md"]
+}
