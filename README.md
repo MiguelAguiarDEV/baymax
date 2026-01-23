@@ -1,6 +1,36 @@
-# OpenCode Config (Everything Claude Code)
+# Baymax OpenCode Config
 
-Configuracion aplicada desde everything-claude-code y adaptada a OpenCode.
+Configuración clara y consistente para OpenCode. Pensada para mantener disciplina en el flujo de trabajo sin sobre‑ingeniería.
+
+## Inicio rápido
+
+```bash
+git clone https://github.com/MiguelAguiarDEV/baymax.git
+cd baymax
+```
+
+Instalar OpenCode (si no lo tienes):
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Vincular la configuración:
+
+```bash
+mkdir -p ~/.config
+ln -sfn "$(pwd)" ~/.config/opencode
+```
+
+## Docs oficiales (OpenCode)
+- https://opencode.ai/docs
+- https://github.com/opencode-ai/opencode
+
+## Qué incluye
+- Agentes especializados
+- Comandos y reglas operativas
+- Skills y contextos
+- Hooks y configuración de MCPs
 
 ## Agentes
 - architect
@@ -53,22 +83,22 @@ Configuracion aplicada desde everything-claude-code y adaptada a OpenCode.
 ## Workflow recomendado (Baymax)
 - **Plan siempre:** usar `/plan` antes de cualquier cambio.
 - **TDD solo para features/bugs:** `/tdd` cuando sea nueva funcionalidad o fix real.
-- **Code review siempre:** `/code-review` despues de cada cambio.
+- **Code review siempre:** `/code-review` después de cada cambio.
 - **Security review cuando aplique:** `@security-reviewer` para input/auth/API/datos sensibles.
-- **E2E solo para flujos criticos:** `/e2e` cuando el cambio afecte flujos clave.
-- **Anti-overengineering:** preferir la solucion mas simple que cumpla requisitos.
+- **E2E solo para flujos críticos:** `/e2e` cuando el cambio afecte flujos clave.
+- **Anti-overengineering:** preferir la solución más simple que cumpla requisitos.
 
 ## Memory (soft)
-- El MCP `memory` esta habilitado, pero es opt-in.
+- El MCP `memory` está habilitado, pero es opt‑in.
 - Solo guardar decisiones importantes, nuevas convenciones o fixes recurrentes.
 - No guardar pasos rutinarios ni datos sensibles.
 
 ### Auto-commit y push de memoria
-- Se guarda en `config/opencode/memory.json`.
-- Cada escritura de memoria ejecuta `git add`, `git commit` y `git push` automaticamente.
+- Se guarda en `~/.config/opencode/memory.json` (una vez enlazado).
+- Cada escritura de memoria ejecuta `git add`, `git commit` y `git push` automáticamente.
 - Se bloquea la persistencia (y por tanto el commit) si hay patrones de posibles secretos (tokens, keys, emails).
 - Para desactivar, comenta el hook de `memory_` en `config/opencode/hooks/hooks.json`.
-- Requiere `jq`, un repo git valido y upstream configurado para auto-push.
+- Requiere `jq`, un repo git válido y upstream configurado para auto‑push (con auth/permisos).
 - Si el push falla (branch protegido o auth), el commit queda local.
 - Comando manual: `/memory-save` (valida y pushea la memoria actual).
 
@@ -87,16 +117,18 @@ Configuracion aplicada desde everything-claude-code y adaptada a OpenCode.
 - sequential-thinking
 - vercel
 
-Nota: MCP filesystem no expande ${HOME} en opencode.json; el instalador reemplaza ${HOME} por la home real.
+Nota: El MCP filesystem no expande ${HOME} en opencode.json; el instalador reemplaza ${HOME} por la home real.
 
-## MCPs que requieren keys o autenticacion
-Confirmado por configuracion o por respuesta del endpoint.
+## MCPs que requieren keys o autenticación
+Confirmado por configuración o por respuesta del endpoint.
 
 - github: requiere `GITHUB_PERSONAL_ACCESS_TOKEN`.
 - firecrawl: requiere `FIRECRAWL_API_KEY`.
 - context7: requiere `CONTEXT7_API_KEY`.
-- vercel: endpoint remoto responde 401 -> requiere autenticacion (OAuth o headers).
-- cloudflare-* (docs/builds/bindings/observability): endpoint remoto no acepto fetch (406). Probable OAuth o headers; tratar como autenticacion requerida.
+- vercel: endpoint remoto responde 401 → requiere autenticación (OAuth o headers).
+- cloudflare-* (docs/builds/bindings/observability): endpoint remoto no aceptó fetch (406). Probable OAuth o headers; tratar como autenticación requerida.
+
+Nota: 406 suele indicar headers o auth faltantes. Considerar como MCP que requiere credenciales.
 
 ## MCPs sin keys (habilitados)
 - filesystem (local)
@@ -110,4 +142,4 @@ OpenCode no ejecuta hooks de Claude Code. Reglas equivalentes en:
 - ~/.config/opencode/rules/hooks-compat.md
 
 ## Notion
-Toda configuracion relacionada con Notion fue eliminada.
+Toda configuración relacionada con Notion fue eliminada.
