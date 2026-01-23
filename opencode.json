@@ -1,6 +1,29 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-google-antigravity-auth"],
+  "plugin": ["opencode-google-antigravity-auth", "./.opencode/plugins/env-protection.js"],
+  "permission": {
+    "*": "ask",
+    "read": {
+      "*": "allow",
+      "*.env": "ask",
+      "*.env.*": "ask",
+      "**/.env": "ask",
+      "**/.env.*": "ask",
+      "*.env.example": "allow"
+    },
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch*": "allow",
+      "git rev-parse*": "allow",
+      "rm*": "ask"
+    },
+    "webfetch": "allow"
+  },
   "provider": {
     "google": {
       "npm": "@ai-sdk/google",
@@ -175,7 +198,44 @@
     }
   },
   "keybinds": {
+    "leader": "ctrl+x",
     "input_newline": "shift+return,ctrl+return,alt+return,ctrl+j"
+  },
+  "theme": "opencode",
+  "default_agent": "build",
+  "share": "manual",
+  "compaction": {
+    "auto": true,
+    "prune": true
+  },
+  "watcher": {
+    "ignore": ["node_modules/**", "dist/**", ".git/**"]
+  },
+  "formatter": {
+    "prettier": {
+      "command": ["npx", "prettier", "--write", "$FILE"]
+    }
+  },
+  "lsp": {
+    "typescript": {},
+    "eslint": {}
+  },
+  "command": {
+    "test": {
+      "template": "Run the full test suite with coverage and summarize failures. Suggest fixes for failing tests.",
+      "description": "Run tests with coverage",
+      "agent": "build"
+    },
+    "lint": {
+      "template": "Run the linter and summarize violations. Provide fixes for the highest-impact issues.",
+      "description": "Run lint checks",
+      "agent": "build"
+    },
+    "review": {
+      "template": "Review current changes, flag risks, and suggest improvements. Focus on security, performance, and correctness.",
+      "description": "Review current changes",
+      "agent": "plan"
+    }
   },
   "mcp": {
     "playwright": {
