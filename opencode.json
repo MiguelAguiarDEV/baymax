@@ -1,6 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-google-antigravity-auth", "./.opencode/plugins/env-protection.js"],
+  "plugin": [
+    "opencode-google-antigravity-auth",
+    "./.opencode/plugins/env-protection.js"
+  ],
   "permission": {
     "*": "ask",
     "read": {
@@ -215,10 +218,6 @@
     "prettier": {
       "command": ["npx", "prettier", "--write", "$FILE"]
     }
-  },
-  "lsp": {
-    "typescript": {},
-    "eslint": {}
   },
   "command": {
     "test": {
