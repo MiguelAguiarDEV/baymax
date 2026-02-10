@@ -1,0 +1,101 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "baymax",
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "ask",
+    "skill": {
+      "*": "allow"
+    }
+  },
+  "instructions": [
+    "~/.config/opencode/system/overview.md",
+    "~/.config/opencode/system/mcp-architecture.md",
+    "~/.config/opencode/system/installation-flow.md",
+    "~/.config/opencode/system/skill-self-repair.md",
+    "~/.config/opencode/system/automation-evolution.md"
+  ],
+  "mcp": {
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": true
+    },
+    "vercel": {
+      "type": "remote",
+      "url": "https://mcp.vercel.com",
+      "enabled": true
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_MCP_PAT}"
+      },
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "--yes",
+        "@playwright/mcp@latest",
+        "--isolated"
+      ],
+      "environment": {
+        "npm_config_cache": "/home/mx/.cache/opencode/npm-playwright",
+        "PLAYWRIGHT_HEADLESS": "0"
+      },
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "kubernetes": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-server-kubernetes"
+      ],
+      "enabled": true
+    },
+    "docker": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "docker-mcp"
+      ],
+      "enabled": true
+    },
+    "google-workspace": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@presto-ai/google-workspace-mcp@1.0.12"
+      ],
+      "enabled": true
+    }
+  },
+  "agent": {
+    "build": {
+      "permission": {
+        "edit": "ask",
+        "bash": "ask",
+        "webfetch": "ask"
+      }
+    },
+    "plan": {
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "ask"
+      }
+    }
+  }
+}
