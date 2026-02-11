@@ -67,8 +67,6 @@
       "enabled": true
     }
   },
-}
-
   "agent": {
     "build": {
       "permission": {
@@ -99,3 +97,4 @@
       }
     }
   }
+}
