@@ -9,7 +9,6 @@ Sistema portable de OpenCode para Baymax: instalacion rapida, orquestacion de ag
 - agentes personalizados (`agents/`)
 - comandos slash (`commands/`)
 - skills operativos (`skills/`)
-- modos archivados (`modes/legacy/`)
 - docs (`docs/`)
 - scripts de automatizacion (`scripts/`)
 
@@ -214,7 +213,6 @@ Convencion de carpetas para skills etiquetadas:
 Notas:
 
 - Las skills sin prefijo siguen permitidas como skills generales.
-- No hace falta renombrar legacy de golpe; puedes migrarlas progresivamente.
 
 Validacion:
 
@@ -228,10 +226,7 @@ Modo estricto (falla si hay skills sin prefijo):
 python3 scripts/validate-skill-tags.py --strict-untagged
 ```
 
-## Modes (archived)
-
-Los modos fueron archivados en `modes/legacy/`.
-El comportamiento de plan profundo, preguntas de aclaracion y decision gates ahora es always-on en `AGENTS.md` y agentes activos.
+El comportamiento de plan profundo, preguntas de aclaracion y decision gates es always-on en `AGENTS.md` y agentes activos.
 
 ## Formato de commits y PR
 

@@ -2,6 +2,13 @@
 description: Planning specialist. Read-only analysis that outputs actionable steps, acceptance criteria, risks, and required specialist invocations.
 mode: subagent
 temperature: 0.1
+permission:
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
 tools:
   write: false
   edit: false

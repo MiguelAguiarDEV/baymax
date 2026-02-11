@@ -2,6 +2,13 @@
 description: Senior code review specialist. Read-only findings with severity, risk, and pass/fail verdict.
 mode: subagent
 temperature: 0.1
+permission:
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
 tools:
   write: false
   edit: false

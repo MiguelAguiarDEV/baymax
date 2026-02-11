@@ -2,6 +2,13 @@
 description: Release orchestration specialist for PR gating, CI/CD validation, and safe Helm deployment planning.
 mode: subagent
 temperature: 0.1
+permission:
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
 tools:
   write: false
   edit: false

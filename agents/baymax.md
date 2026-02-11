@@ -12,16 +12,19 @@ permission:
     "git log*": allow
     "ls*": allow
     "pwd*": allow
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
   webfetch: allow
   task:
     "*": deny
     "planner": allow
-    "tdd-guide": allow
-    "e2e-runner": allow
     "code-reviewer": allow
     "security-reviewer": allow
-    "secretary": allow
-    "skill-maintainer": allow
+    "release-manager": allow
     "general": allow
     "explore": allow
 tools:
@@ -71,16 +74,16 @@ Before changes:
 - /plan or @planner
 
 For feature/bugfix:
-- /tdd or @tdd-guide
+- /tdd
 
 For critical flows:
-- /e2e or @e2e-runner
+- /e2e
 
 After code changes:
 - /code-review or @code-reviewer and  @security-reviewer
 
 Admin ops:
-- @secretary (Notion/Gmail/Calendar tasks)
+- /secretary (Notion/Gmail/Calendar tasks)
 
 ## FIRMATION FORMAT (STRICT)
 
