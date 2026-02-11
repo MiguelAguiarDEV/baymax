@@ -67,6 +67,8 @@
       "enabled": true
     }
   },
+}
+
   "agent": {
     "build": {
       "permission": {
@@ -86,8 +88,14 @@
       "permission": {
         "edit": "deny",
         "bash": "deny",
-        "webfetch": "ask"
+        "webfetch": "ask",
+        "external_directory": {
+          "{env:HOME}/.config/opencode/AGENTS.md": "allow",
+          "{env:HOME}/.config/opencode/skills/*": "allow",
+          "{env:HOME}/.config/opencode/agents/*": "allow",
+          "{env:HOME}/.config/opencode/commands/*": "allow",
+          "*": "ask"
+        }
       }
     }
   }
-}

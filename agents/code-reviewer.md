@@ -10,6 +10,7 @@ permission:
     "{env:HOME}/.config/opencode/commands/*": allow
     "*": ask
 tools:
+  skill: true
   write: false
   edit: false
   patch: false
