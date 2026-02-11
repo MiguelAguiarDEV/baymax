@@ -1,8 +1,22 @@
 # Skills listed here are included in AGENTS.md auto-generated table.
-# Keep this list minimal to reduce default context load.
+# Adjust this list based on desired context budget (minimal or full activation).
 
-op-guardrails
+fe-baseline-ui
+fe-coder
+fe-design
+fe-react
+op-brainstorming
+op-changelog-generator
+op-component-factory
 op-config-sync
-op-skill-lifecycle
+op-guardrails
+op-mcp-installation
+op-prompter
 op-release-deploy
-debugging
+op-skill-lifecycle
+op-skill-repair
+qa-debugging
+qa-error-handling
+sec-calendar
+sec-gmail
+sec-notion

@@ -7,4 +7,4 @@ Generate a factory blueprint for this workflow request:
 
 $ARGUMENTS
 
-Use `skills/component-factory/SKILL.md` and return a concrete file-by-file blueprint plus validation steps.
+Use `skills/op-component-factory/SKILL.md` and return a concrete file-by-file blueprint plus validation steps.

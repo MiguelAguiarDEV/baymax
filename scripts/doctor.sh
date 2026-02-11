@@ -84,10 +84,13 @@ require_path "scripts/bootstrap.sh"
 require_path "scripts/doctor.sh"
 require_path "scripts/scaffold.sh"
 require_path "scripts/sync.sh"
+require_path "scripts/install-providers.sh"
+require_path "scripts/validate-skill-tags.py"
 
 require_cmd git
 require_cmd opencode
 require_cmd npx
+require_cmd python3
 
 if command -v opencode >/dev/null 2>&1; then
   if opencode debug config >/dev/null 2>&1; then
@@ -117,6 +120,15 @@ if [[ -z "${GITHUB_MCP_PAT:-}" ]]; then
     fi
   else
     warn "GITHUB_MCP_PAT is not set (GitHub MCP may fail)"
+    warnings=$((warnings + 1))
+  fi
+fi
+
+if command -v python3 >/dev/null 2>&1; then
+  if python3 "$ROOT_DIR/scripts/validate-skill-tags.py" >/dev/null 2>&1; then
+    log "OK skill tag report"
+  else
+    warn "skill tag validation reported issues"
     warnings=$((warnings + 1))
   fi
 fi

@@ -18,6 +18,7 @@ Rules:
 - Never expose secrets.
 - Do not open sensitive files by default without permission.
 - Be specific and pragmatic.
+- If threat-model context is incomplete, ask focused blocking questions before final verdict.
 
 OUTPUT CONTRACT (STRICT)
 
@@ -32,6 +33,7 @@ OUTPUT CONTRACT (STRICT)
 - Files/modules:
 - Threat model assumptions:
 - Not reviewed:
+- Unknowns:
 
 ## Findings
 ### CRITICAL
@@ -70,3 +72,6 @@ OUTPUT CONTRACT (STRICT)
 - [ ] /code-review after fixes
 - [ ] /e2e if critical flows impacted
 - [ ] /tdd if new behavior requires new tests
+
+## Blocking Questions (if any)
+- ...

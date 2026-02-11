@@ -9,7 +9,7 @@ Sistema portable de OpenCode para Baymax: instalacion rapida, orquestacion de ag
 - agentes personalizados (`agents/`)
 - comandos slash (`commands/`)
 - skills operativos (`skills/`)
-- modos (`modes/`)
+- modos archivados (`modes/legacy/`)
 - docs (`docs/`)
 - scripts de automatizacion (`scripts/`)
 
@@ -31,6 +31,8 @@ git clone https://github.com/MiguelAguiarDEV/opencode-baymax-config.git ~/.confi
 - `scripts/sync.sh` -> flujo de sync con git (`status`, `pull`, `push`, `publish`)
 - `scripts/helm-safe-upgrade.sh` -> `helm upgrade --install` endurecido (wait/atomic/rollback-safe)
 - `scripts/release-pipeline.sh` -> commit/push + PR + wait CI + resolve SHA + deploy Helm seguro con autodeteccion
+- `scripts/install-providers.sh` -> instala/sincroniza skills, agentes y comandos en OpenCode, Codex, Gemini, Antigravity y Claude Code
+- `scripts/validate-skill-tags.py` -> reporte de skills etiquetadas (`op-`, `sec-`, `fe-`, `qa-`) y skills generales sin prefijo
 - `scripts/windows/wsl-localhost-bridge.ps1` -> puente localhost Windows -> WSL para callbacks OAuth
 
 ## Requisitos
@@ -139,6 +141,46 @@ En PC B (donde consumes):
 ~/.config/opencode/scripts/bootstrap.sh
 ```
 
+## Instalacion multi-provider (OpenCode, Codex, Gemini, Antigravity, Claude Code)
+
+Instala/sincroniza assets de este repo en varios proveedores desde un solo comando.
+
+```bash
+./scripts/install-providers.sh
+```
+
+Por defecto:
+
+- usa `--mode symlink`
+- instala en: `~/.config/opencode`, `~/.codex`, `~/.gemini`, `~/.gemini/antigravity`, `~/.claude`
+- toma skills/agentes activos desde:
+  - `skills/ACTIVE_SKILLS.txt`
+  - `agents/ACTIVE_AGENTS.txt`
+
+Ejemplos:
+
+```bash
+# Ver rutas destino sin tocar nada
+./scripts/install-providers.sh --list
+
+# Solo codex + gemini en modo copia
+./scripts/install-providers.sh --providers codex,gemini --mode copy
+
+# Simulacion
+./scripts/install-providers.sh --providers antigravity,claudecode --dry-run
+
+# Sobrescribir destinos existentes
+./scripts/install-providers.sh --force
+```
+
+Overrides por variable de entorno:
+
+- `OPENCODE_HOME`
+- `CODEX_HOME`
+- `GEMINI_HOME`
+- `ANTIGRAVITY_HOME`
+- `CLAUDECODE_HOME`
+
 ## Comandos slash core (flujo reducido)
 
 - `/plan`
@@ -160,10 +202,36 @@ En PC B (donde consumes):
 
 Estos comandos no requieren agentes dedicados; se enrutan al `planner` y usan skills/contexto especializado.
 
-## Modes
+## Taxonomia de skills (tags)
 
-`modes/` se mantiene como capacidad opcional/manual de sesion.
-No forma parte del flujo core de comandos slash.
+Convencion de carpetas para skills etiquetadas:
+
+- `op-*` -> operacion/configuracion de OpenCode
+- `sec-*` -> workflows de secretaria (calendar/gmail/notion)
+- `fe-*` -> frontend/UI
+- `qa-*` -> testing/calidad
+
+Notas:
+
+- Las skills sin prefijo siguen permitidas como skills generales.
+- No hace falta renombrar legacy de golpe; puedes migrarlas progresivamente.
+
+Validacion:
+
+```bash
+python3 scripts/validate-skill-tags.py
+```
+
+Modo estricto (falla si hay skills sin prefijo):
+
+```bash
+python3 scripts/validate-skill-tags.py --strict-untagged
+```
+
+## Modes (archived)
+
+Los modos fueron archivados en `modes/legacy/`.
+El comportamiento de plan profundo, preguntas de aclaracion y decision gates ahora es always-on en `AGENTS.md` y agentes activos.
 
 ## Formato de commits y PR
 
