@@ -94,7 +94,15 @@ create_agent() {
 description: $DESCRIPTION
 mode: subagent
 temperature: 0.2
+permission:
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
 tools:
+  skill: true
   write: false
   edit: false
   patch: false

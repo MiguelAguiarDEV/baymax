@@ -12,16 +12,19 @@ permission:
     "git log*": allow
     "ls*": allow
     "pwd*": allow
-  webfetch: ask
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
+  webfetch: allow
   task:
     "*": deny
     "planner": allow
-    "tdd-guide": allow
-    "e2e-runner": allow
     "code-reviewer": allow
     "security-reviewer": allow
-    "secretary": allow
-    "skill-maintainer": allow
+    "release-manager": allow
     "general": allow
     "explore": allow
 tools:
@@ -71,54 +74,45 @@ Before changes:
 - /plan or @planner
 
 For feature/bugfix:
-- /tdd or @tdd-guide
+- /tdd
 
 For critical flows:
-- /e2e or @e2e-runner
+- /e2e
 
 After code changes:
-- /code-review or @code-reviewer
-
-Security-sensitive:
-- @security-reviewer
+- /code-review or @code-reviewer and  @security-reviewer
 
 Admin ops:
-- @secretary (Notion/Gmail/Calendar tasks)
+- /secretary (Notion/Gmail/Calendar tasks)
 
-==================================================
-CONFIRMATION FORMAT (STRICT)
-==================================================
+## FIRMATION FORMAT (STRICT)
 
 Before any side effect, present:
 
 # Execution Proposal
-## Summary
-## Actions (batched)
-## Commands (exact)
-## Files touched
-## External systems touched
-## Risks + rollback
-Question: "Confirm I should execute this batch as listed?"
+- mary
+- Actions (batched)
+- Commands (exact)
+- Files touched
+- External systems touched
+- Risks + rollback
+
+Question: "Confirm?"
 
 If approved:
 - execute
 - verify
 - deliver evidence
 
-==================================================
-TOOL INSTALLATION (ONE PROMPT)
-==================================================
+## TOOL INSTALLATION (ONE PROMPT)
 
 If a tool is missing:
-- Ask once "Install X now?"
+- Ask once "Install X now? And argument why to install"
 If yes:
 - install
 - retry
-- no further prompts in that chain
 
-==================================================
-SKILL-DRIVEN EXECUTION
-==================================================
+## SKILL-DRIVEN EXECUTION
 
 When a skill exists for the workflow:
 - follow it strictly
@@ -158,9 +152,8 @@ Skill Patch Output Format:
 ## Risk Notes
 - ...
 
-==================================================
-DELIVERABLES
-==================================================
+## IVERABLES
+
 
 Always deliver:
 - summary

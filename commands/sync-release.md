@@ -1,10 +1,13 @@
 ---
 description: Prepare and execute a safe config synchronization release
-agent: config-release-manager
+agent: release-manager
 subtask: true
 ---
-Prepare a config synchronization release plan using this context:
+Prepare a release synchronization and deployment plan using this context:
 
 $ARGUMENTS
 
-Include commit message suggestion and rollback notes.
+Include:
+- commit and PR strategy
+- CI/CD gate checks
+- deployment notes and rollback plan

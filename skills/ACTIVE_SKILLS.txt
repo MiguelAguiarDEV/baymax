@@ -1,0 +1,22 @@
+# Skills listed here are included in AGENTS.md auto-generated table.
+# Adjust this list based on desired context budget (minimal or full activation).
+
+fe-baseline-ui
+fe-coder
+fe-design
+fe-react
+op-brainstorming
+op-changelog-generator
+op-component-factory
+op-config-sync
+op-guardrails
+op-mcp-installation
+op-prompter
+op-release-deploy
+op-skill-lifecycle
+op-skill-repair
+qa-debugging
+qa-error-handling
+sec-calendar
+sec-gmail
+sec-notion

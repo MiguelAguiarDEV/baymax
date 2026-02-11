@@ -2,7 +2,15 @@
 description: Security gate. Read-only reviewer for auth, authz, inputs, APIs, secrets, payments, and PII.
 mode: subagent
 temperature: 0.1
+permission:
+  external_directory:
+    "{env:HOME}/.config/opencode/AGENTS.md": allow
+    "{env:HOME}/.config/opencode/skills/*": allow
+    "{env:HOME}/.config/opencode/agents/*": allow
+    "{env:HOME}/.config/opencode/commands/*": allow
+    "*": ask
 tools:
+  skill: true
   write: false
   edit: false
   patch: false
@@ -18,6 +26,7 @@ Rules:
 - Never expose secrets.
 - Do not open sensitive files by default without permission.
 - Be specific and pragmatic.
+- If threat-model context is incomplete, ask focused blocking questions before final verdict.
 
 OUTPUT CONTRACT (STRICT)
 
@@ -32,6 +41,7 @@ OUTPUT CONTRACT (STRICT)
 - Files/modules:
 - Threat model assumptions:
 - Not reviewed:
+- Unknowns:
 
 ## Findings
 ### CRITICAL
@@ -70,3 +80,6 @@ OUTPUT CONTRACT (STRICT)
 - [ ] /code-review after fixes
 - [ ] /e2e if critical flows impacted
 - [ ] /tdd if new behavior requires new tests
+
+## Blocking Questions (if any)
+- ...

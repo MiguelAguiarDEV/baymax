@@ -1,5 +1,5 @@
 ---
-description: Create a structured implementation plan with acceptance criteria and risks
+description: Create a deep implementation plan with explicit unknowns, decisions, and acceptance criteria
 agent: planner
 subtask: true
 ---
@@ -7,4 +7,4 @@ Use the planner workflow to produce a complete implementation plan for this requ
 Context and extra requirements:
 $ARGUMENTS
 
-Return output using the planner output contract.
+Return output using the planner output contract, including unknowns, blocking questions, and decision points.

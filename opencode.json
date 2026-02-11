@@ -5,17 +5,18 @@
     "edit": "ask",
     "bash": "ask",
     "webfetch": "ask",
+    "external_directory": {
+      "{env:HOME}/.config/opencode/AGENTS.md": "allow",
+      "{env:HOME}/.config/opencode/skills/*": "allow",
+      "{env:HOME}/.config/opencode/agents/*": "allow",
+      "{env:HOME}/.config/opencode/commands/*": "allow",
+      "*": "ask"
+    },
     "skill": {
       "*": "allow"
     }
   },
-  "instructions": [
-    "~/.config/opencode/system/overview.md",
-    "~/.config/opencode/system/mcp-architecture.md",
-    "~/.config/opencode/system/installation-flow.md",
-    "~/.config/opencode/system/skill-self-repair.md",
-    "~/.config/opencode/system/automation-evolution.md"
-  ],
+  "instructions": ["{env:HOME}/.config/opencode/AGENTS.md"],
   "mcp": {
     "notion": {
       "type": "remote",
@@ -38,14 +39,9 @@
     },
     "playwright": {
       "type": "local",
-      "command": [
-        "npx",
-        "--yes",
-        "@playwright/mcp@latest",
-        "--isolated"
-      ],
+      "command": ["npx", "--yes", "@playwright/mcp@latest", "--isolated"],
       "environment": {
-        "npm_config_cache": "/home/mx/.cache/opencode/npm-playwright",
+        "npm_config_cache": "{env:HOME}/.cache/opencode/npm-playwright",
         "PLAYWRIGHT_HEADLESS": "0"
       },
       "enabled": true
@@ -57,45 +53,49 @@
     },
     "kubernetes": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "mcp-server-kubernetes"
-      ],
+      "command": ["npx", "-y", "mcp-server-kubernetes"],
       "enabled": true
     },
     "docker": {
       "type": "local",
-      "command": [
-        "uvx",
-        "docker-mcp"
-      ],
+      "command": ["uvx", "docker-mcp"],
       "enabled": true
     },
     "google-workspace": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@presto-ai/google-workspace-mcp@1.0.12"
-      ],
+      "command": ["npx", "-y", "@presto-ai/google-workspace-mcp@1.0.12"],
       "enabled": true
     }
   },
+}
+
   "agent": {
     "build": {
       "permission": {
         "edit": "ask",
         "bash": "ask",
-        "webfetch": "ask"
+        "webfetch": "ask",
+        "external_directory": {
+          "{env:HOME}/.config/opencode/AGENTS.md": "allow",
+          "{env:HOME}/.config/opencode/skills/*": "allow",
+          "{env:HOME}/.config/opencode/agents/*": "allow",
+          "{env:HOME}/.config/opencode/commands/*": "allow",
+          "*": "ask"
+        }
       }
     },
     "plan": {
       "permission": {
         "edit": "deny",
         "bash": "deny",
-        "webfetch": "ask"
+        "webfetch": "ask",
+        "external_directory": {
+          "{env:HOME}/.config/opencode/AGENTS.md": "allow",
+          "{env:HOME}/.config/opencode/skills/*": "allow",
+          "{env:HOME}/.config/opencode/agents/*": "allow",
+          "{env:HOME}/.config/opencode/commands/*": "allow",
+          "*": "ask"
+        }
       }
     }
   }
-}
