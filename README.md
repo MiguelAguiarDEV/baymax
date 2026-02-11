@@ -2,6 +2,24 @@
 
 Sistema portable de OpenCode para Baymax: instalacion rapida, orquestacion de agentes, skills versionados y sincronizacion multi-PC.
 
+## Indice
+
+- [Que incluye](#que-incluye)
+- [Instalacion ultra rapida (nuevo PC)](#instalacion-ultra-rapida-nuevo-pc)
+- [Scripts principales](#scripts-principales)
+- [Requisitos](#requisitos)
+- [MCPs incluidos](#mcps-incluidos)
+- [Autenticacion MCP](#autenticacion-mcp)
+- [Flujo para crear nuevas skills/agentes (super rapido)](#flujo-para-crear-nuevas-skillsagentes-super-rapido)
+- [Sincronizacion entre PCs](#sincronizacion-entre-pcs)
+- [Instalacion multi-provider (OpenCode, Codex, Gemini, Antigravity, Claude Code)](#instalacion-multi-provider-opencode-codex-gemini-antigravity-claude-code)
+- [Comandos slash core (flujo reducido)](#comandos-slash-core-flujo-reducido)
+- [Comandos slash opcionales (planner-routed)](#comandos-slash-opcionales-planner-routed)
+- [Taxonomia de skills (tags)](#taxonomia-de-skills-tags)
+- [Formato de commits y PR](#formato-de-commits-y-pr)
+- [Flujo release/deploy automatizado](#flujo-releasedeploy-automatizado)
+- [Nota de seguridad](#nota-de-seguridad)
+
 ## Que incluye
 
 - `AGENTS.md` con gobernanza global
