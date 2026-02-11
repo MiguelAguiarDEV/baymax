@@ -13,6 +13,7 @@ Use this skill when the user asks to build web components, pages, or application
 ## Design Thinking
 
 Before coding, understand context and commit to a clear aesthetic direction:
+
 - Purpose: what problem the interface solves and who uses it
 - Tone: choose a concrete visual language (minimal, brutalist, editorial, playful, etc.)
 - Constraints: framework, accessibility, performance, platform

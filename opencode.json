@@ -10,11 +10,7 @@
     }
   },
   "instructions": [
-    "~/.config/opencode/system/overview.md",
-    "~/.config/opencode/system/mcp-architecture.md",
-    "~/.config/opencode/system/installation-flow.md",
-    "~/.config/opencode/system/skill-self-repair.md",
-    "~/.config/opencode/system/automation-evolution.md"
+    "{env:HOME}/.config/opencode/AGENTS.md"
   ],
   "mcp": {
     "notion": {
@@ -45,7 +41,7 @@
         "--isolated"
       ],
       "environment": {
-        "npm_config_cache": "/home/mx/.cache/opencode/npm-playwright",
+        "npm_config_cache": "{env:HOME}/.cache/opencode/npm-playwright",
         "PLAYWRIGHT_HEADLESS": "0"
       },
       "enabled": true

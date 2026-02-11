@@ -1,0 +1,8 @@
+# Skills listed here are included in AGENTS.md auto-generated table.
+# Keep this list minimal to reduce default context load.
+
+op-guardrails
+op-config-sync
+op-skill-lifecycle
+op-release-deploy
+debugging
