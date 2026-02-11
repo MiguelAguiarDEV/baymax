@@ -1,5 +1,5 @@
 ---
-name: component-factory
+name: op-component-factory
 description: Creates new skills, agents, commands, and modes with consistent templates and validation flow.
 compatibility: opencode
 metadata:

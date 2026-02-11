@@ -1,5 +1,5 @@
 ---
-name: error-handling
+name: qa-error-handling
 description: Implement robust error handling with clear propagation and recovery strategies.
 compatibility: opencode
 metadata:

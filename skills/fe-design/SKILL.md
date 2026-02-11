@@ -1,5 +1,5 @@
 ---
-name: frontend-design
+name: fe-design
 description: Create distinctive, production-grade frontend interfaces with high design quality.
 compatibility: opencode
 metadata:

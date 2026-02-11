@@ -1,5 +1,5 @@
 ---
-name: systematic-debugging
+name: qa-debugging
 description: Step-by-step root cause debugging before proposing fixes.
 compatibility: opencode
 metadata:

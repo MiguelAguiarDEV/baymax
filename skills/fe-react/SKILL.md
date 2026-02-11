@@ -1,5 +1,5 @@
 ---
-name: react
+name: fe-react
 description: Apply modern React and Next.js performance patterns with prioritized rules.
 compatibility: opencode
 metadata:

@@ -96,25 +96,25 @@ Table is auto-generated. DO NOT edit this block manually. Regenerate with: `pyth
 <!-- SKILLS_TABLE:START -->
 | Context | Read this file | Description |
 | --- | --- | --- |
-| `baseline-ui` | `skills/fe-baseline-ui/SKILL.md` | Enforces an opinionated UI baseline to prevent AI-generated interface slop. |
-| `brainstorming` | `skills/op-brainstorming/SKILL.md` | Use before creative implementation work to refine intent, alternatives, and design. |
-| `changelog-generator` | `skills/op-changelog-generator/SKILL.md` | Transform technical commits into polished, user-facing changelogs. |
-| `component-factory` | `skills/op-component-factory/SKILL.md` | Creates new skills, agents, commands, and modes with consistent templates and validation flow. |
-| `error-handling` | `skills/qa-error-handling/SKILL.md` | Implement robust error handling with clear propagation and recovery strategies. |
-| `frontend-design` | `skills/fe-design/SKILL.md` | Create distinctive, production-grade frontend interfaces with high design quality. |
-| `interface-coder` | `skills/fe-coder/SKILL.md` | Structure layouts, hierarchy, and components with deliberate visual craft. |
+| `fe-baseline-ui` | `skills/fe-baseline-ui/SKILL.md` | Enforces an opinionated UI baseline to prevent AI-generated interface slop. |
+| `fe-coder` | `skills/fe-coder/SKILL.md` | Structure layouts, hierarchy, and components with deliberate visual craft. |
+| `fe-design` | `skills/fe-design/SKILL.md` | Create distinctive, production-grade frontend interfaces with high design quality. |
+| `fe-react` | `skills/fe-react/SKILL.md` | Apply modern React and Next.js performance patterns with prioritized rules. |
+| `op-brainstorming` | `skills/op-brainstorming/SKILL.md` | Use before creative implementation work to refine intent, alternatives, and design. |
+| `op-changelog-generator` | `skills/op-changelog-generator/SKILL.md` | Transform technical commits into polished, user-facing changelogs. |
+| `op-component-factory` | `skills/op-component-factory/SKILL.md` | Creates new skills, agents, commands, and modes with consistent templates and validation flow. |
 | `op-config-sync` | `skills/op-config-sync/SKILL.md` | Standard workflow for syncing Baymax OpenCode config across machines with validation and rollback. |
 | `op-guardrails` | `skills/op-guardrails/SKILL.md` | On-demand governance for sensitive data, confirmation gates, installation flow, and failure handling on real systems. |
 | `op-mcp-installation` | `skills/op-mcp-installation/SKILL.md` | Cascading MCP installation and credential validation protocol with one-prompt confirmation and minimal sanity checks. |
 | `op-prompter` | `skills/op-prompter/SKILL.md` | Improve LLM reliability with structured prompting, templates, and evaluation patterns. |
 | `op-release-deploy` | `skills/op-release-deploy/SKILL.md` | Safe release workflow from commit and PR gates to CI validation and Helm upgrade with explicit rollback controls. |
 | `op-skill-lifecycle` | `skills/op-skill-lifecycle/SKILL.md` | Create, update, deprecate, and repair skills with minimal diffs and explicit validation gates. |
-| `react` | `skills/fe-react/SKILL.md` | Apply modern React and Next.js performance patterns with prioritized rules. |
+| `op-skill-repair` | `skills/op-skill-repair/SKILL.md` | Detect and patch broken workflow skills with minimal diffs, root-cause analysis, and explicit verification steps. |
+| `qa-debugging` | `skills/qa-debugging/SKILL.md` | Step-by-step root cause debugging before proposing fixes. |
+| `qa-error-handling` | `skills/qa-error-handling/SKILL.md` | Implement robust error handling with clear propagation and recovery strategies. |
 | `sec-calendar` | `skills/sec-calendar/SKILL.md` | Standard workflow for scheduling and managing calendar events with timezone checks, slot proposals, and gated invite creation. |
 | `sec-gmail` | `skills/sec-gmail/SKILL.md` | Inbox triage workflow for clustering emails by urgency, drafting responses, and proposing batched send actions. |
 | `sec-notion` | `skills/sec-notion/SKILL.md` | Standard workflow for creating and maintaining Notion projects, tasks, meeting notes, and specs with safe drafting and gated publishing. |
-| `skill-self-repair` | `skills/op-skill-repair/SKILL.md` | Detect and patch broken workflow skills with minimal diffs, root-cause analysis, and explicit verification steps. |
-| `systematic-debugging` | `skills/qa-debugging/SKILL.md` | Step-by-step root cause debugging before proposing fixes. |
 <!-- SKILLS_TABLE:END -->
 
 # Agents (Auto-load based on context)

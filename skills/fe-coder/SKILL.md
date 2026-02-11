@@ -1,5 +1,5 @@
 ---
-name: interface-coder
+name: fe-coder
 description: Structure layouts, hierarchy, and components with deliberate visual craft.
 compatibility: opencode
 metadata:

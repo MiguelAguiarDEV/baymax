@@ -1,5 +1,5 @@
 ---
-name: skill-self-repair
+name: op-skill-repair
 description: Detect and patch broken workflow skills with minimal diffs, root-cause analysis, and explicit verification steps.
 compatibility: opencode
 metadata:

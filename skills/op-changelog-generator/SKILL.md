@@ -1,5 +1,5 @@
 ---
-name: changelog-generator
+name: op-changelog-generator
 description: Transform technical commits into polished, user-facing changelogs.
 compatibility: opencode
 metadata:

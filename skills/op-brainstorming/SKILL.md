@@ -1,5 +1,5 @@
 ---
-name: brainstorming
+name: op-brainstorming
 description: Use before creative implementation work to refine intent, alternatives, and design.
 compatibility: opencode
 metadata:
